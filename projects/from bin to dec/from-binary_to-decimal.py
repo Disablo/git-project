@@ -11,27 +11,24 @@ arr_b = []
 user_input = ""
 user_choice = 0
 
-BI_CHAR = "йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ23456789qwertyuiop[]asdfghjkl;'\"\\zxcvbnm,." \
-          "/QWERTYUIOASDFGHJKLZXCVBNM`~!@#$%^&*()-=_+|<>"
 
-DE_CHAR = "йцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮqwertyuiop[]asdfghjkl;'\"\\zxcvbnm,./QWE" \
-          "RTYUIOASDFGHJKLZXCVBNM`~!@#$%^&*()-=_+|<>"
+def check(param):
+    try:
+        param = int(param)
+    except ValueError:
+        print("You input %s but in must be number." % param)
+        exit()
 
 print("Привет! Я перевожу десятичные в двоичные и наоборот.\n")
 
-while user_choice not in (1, 2):
-    user_choice = int(input("Вы хотите двоичное перевести в десятичнок (1) или десятичное в двоичное (2): "))
+while user_choice not in ("1", "2"):
+    user_choice = input("Вы хотите двоичное перевести в десятичнок (1) или десятичное в двоичное (2): ")
+    check(user_choice)
 
-if user_choice == 1:
+if user_choice == "1":
 
-    while user_input in BI_CHAR:
-        user_input = input("Введите двоичное, чтобы я перевёл его в десятичное: ")
-
-        for i in user_input:
-            if i in BI_CHAR:
-                print("Ошибка ввода. Введите числа от 0 до 1.")
-                user_input = ""
-                break
+    user_input = input("Введите двоичное, чтобы я перевёл его в десятичное: ")
+    check(user_input)
 
     for i in user_input:
         arr_b.append(int(i))
@@ -46,16 +43,10 @@ if user_choice == 1:
     e /= 2
     print(e)
 
-elif user_choice == 2:
+elif user_choice == "2":
 
-    while user_input in DE_CHAR:
-        user_input = input("Введите десятичное, чтобы я перевёл его в двоичное: ")
-
-        for i in user_input:
-            if i in DE_CHAR:
-                print("Ошибка ввода. Введите числа от 0 до 9.")
-                user_input = ""
-                break
+    user_input = input("Введите десятичное, чтобы я перевёл его в двоичное: ")
+    check(user_input)
 
     user_input = int(user_input)
     while b != 0:
