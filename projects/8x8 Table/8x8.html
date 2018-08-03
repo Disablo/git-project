@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8"/>
+		<title>8x8 Table</title>
+		
+		<script src="jquery-3.3.1.min.js">
+		</script>
+		
+		<style>
+		
+			#table {
+				border: 1px solid;
+				width: 640px;
+				height: 640px;
+				border-spacing: 8px;
+			}
+			td {
+				width: 10px;
+				height: 10px;
+				border: 1px solid;
+			}
+			td:hover {
+				background: #D2D1CD;
+			}
+			.filling {
+				background-color: #000000;
+				border: 1px solid #9CC9CD;
+			}
+		
+		</style>
+	</head>
+
+	<body>
+		<table id="table">
+		
+			<tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+			<tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+			<tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+			<tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+			<tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+			<tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+			<tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+			<tr> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> <td></td> </tr>
+		
+		</table>
+		
+		<script>
+		
+			$('td').click(function() {
+				$(this).addClass("filling");
+			});
+			
+			$('td').dblclick(function() {
+				$(this).removeClass();
+			});
+				
+		</script>
+		
+	</body>
+	
+</html>
