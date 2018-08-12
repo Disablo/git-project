@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<title>Korean Speaker</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style>
+			label {
+				margin-left: 35%;
+			}
+			body, div {
+			background: #E7E6EB;
+			}
+			p {
+				text-align: center;
+				opacity: 0.47;
+			}
+		</style>
+
+	</head>
+	
+	<body>
+		<div class="row">
+			<div class="col-xs-3">
+				<header>
+					<img src="images/translater.png">
+				</header>
+			</div>
+			
+			<div class="col-xs-9">
+				
+			</div>
+		</div>
+		
+		<div class="row" class="well">
+		
+			<h2 align="center">Вводишь текст, а тебе показывает как сказал бы это кореец</h2>
+			
+			<div class="well">
+			
+				<label class="format" for="must_converted">Введи текст</label>
+				<input align="center" type="text" name="text" id="name" placeholder="Напиши что-то..."><br><br>
+				<button class="btn btn-primary btn-block">Жмякай чтобы перевести</button>
+				
+			</div>	
+		
+		</div>
+		
+		<div>
+		
+			<p id="text"></p>
+		
+		</div>
+		
+		<hr id="separator">
+		
+		<footer>
+			<p>
+				<small>
+					Созданно при поддержке здравого разума, зелёного чая и руководства W3C.<br>
+					Visit GitHub of author <a href="https://github.com/Disablo/git-project" target="blank">here.</a>
+				</small>
+			</p>
+		</footer>
+		
+		<script>
+		
+			$('button').click(function() {
+				
+				$('#text').text("");
+				
+				var changed = "";
+				var c_arr = [];
+				var data = $('#name').val();
+				
+				for (var i=0; i<=data.length - 1; i++) {
+					//ф-п в-б р- л-дь з-чж
+						
+					var tran = data[i];
+						
+					if (tran == "ф" || tran == "Ф"){
+						tran = "п";
+					} else if (tran == "в" || tran == "В") {
+						tran = "б";
+					} else if (tran == "р" || tran == "Р") {
+						tran = "";
+					} else if (tran == "л" || tran == "Л") {
+						tran = "дь";
+					} else if (tran == "з" || tran == "З") {
+						tran = "чж";
+					} else {
+						tran = tran;
+					}
+						
+					//$('#text').append(i);
+					changed += tran;
+						
+					}
+					
+					$('#text').text(changed);
+					
+			});
+		
+		</script>
+		
+	</body>
+	
+</html>
